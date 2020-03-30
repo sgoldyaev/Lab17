@@ -12,15 +12,16 @@ namespace Lab17
         static void Main(string[] args)
         {
             LabContext db = new LabContext();
+            db.Database.CreateIfNotExists();
 
             var parentalss = db.Parentals.ToList();
 
             foreach (var parental in parentalss)
             {
-                Console.WriteLine("1. Название: {0} \n" +
-                    "3. : {2}",
-                    parental.Phone,  parental.Phone);
-
+                Console.WriteLine("1. Название: {0}\n" +
+                    "2. : FIO {1}\n",
+                    "3. : {2}\n",
+                    parental.Phone, parental.FIO_rod,  parental.Phone);
 
                 Console.WriteLine();
             }
